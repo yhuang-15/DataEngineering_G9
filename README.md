@@ -1,6 +1,6 @@
 # DataEngineer_G9
 
-Group members:
+## Group members:
   - Gergo	Bocsardi
   - Yikang Huang
   - Virgil Sowirono
