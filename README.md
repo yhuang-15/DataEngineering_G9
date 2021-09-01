@@ -1,4 +1,4 @@
-# DataEngineer_G9
+# DataEngineering_G9
 
 ## Group members:
   - Gergo	Bocsardi
