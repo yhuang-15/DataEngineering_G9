@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   data_ingestion_service:
-    image:
-        context: ./../data-ingestion-cp
+    build:
+      context: ./../data-ingestion-cp
     environment:
       - TRAININGDB_API=http://trainingdb_service:5000/training-db/rawdata
     depends_on:
@@ -13,7 +13,7 @@ services:
       - "5000:5000"
 
   trainingdb_service:
-    image:
+    build:
       context: ./../trainingdb-postgres-cp
     environment:
       - DB_URL=postgresql://testuser:testpass@pgdb_server:5432/features
