@@ -16,7 +16,7 @@ def load():
     data_list = []
     for row in all_data:
         dict_1 = {f"pix_{i}": row[i] for i in range(row.shape[0] - 1)}
-        dict_1['y'] = row[-1]
+        dict_1["y"] = row[-1]
 
         data_list.append(dict_1)
 

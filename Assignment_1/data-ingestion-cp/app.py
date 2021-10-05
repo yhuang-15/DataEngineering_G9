@@ -2,6 +2,7 @@ import os
 
 import requests
 from flask import Flask, Response
+import json
 
 from resources import download_sklearn_data
 
@@ -16,7 +17,7 @@ def save_data():
     content = download_sklearn_data.load()
 
     # Make a PUT request to training db service to store data into the training data/features.
-    r = requests.put(db_api, data=content)
+    r = requests.put(db_api, data=json.dumps(content))
 
     return r.content
 
