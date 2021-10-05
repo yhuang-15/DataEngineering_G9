@@ -1,7 +1,8 @@
 version: '3.8'
 services:
   data_ingestion_service:
-    image: # to add image
+    image:
+        context: ./../data-ingestion-cp
     environment:
       - TRAININGDB_API=http://trainingdb_service:5000/training-db/rawdata
     depends_on:
@@ -12,7 +13,8 @@ services:
       - "5000:5000"
 
   trainingdb_service:
-    image: indikakumara/trainingdbapi-postgres:0.0.1
+    image:
+      context: ./../trainingdb-postgres-cp
     environment:
       - DB_URL=postgresql://testuser:testpass@pgdb_server:5432/features
     depends_on:
@@ -33,7 +35,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /home/indika_kuma/pgdata:/var/lib/postgresql/data
+      - /home/y_huang_15/pgdata:/var/lib/postgresql/data
 
   db_admin:
     image: adminer
