@@ -17,7 +17,7 @@ def save_data():
     content = download_sklearn_data.load()
 
     # Make a PUT request to training db service to store data into the training data/features.
-    r = requests.put(db_api, json=json.dumps(content))
+    r = requests.put(db_api, json=content)
 
     return r.content
 
