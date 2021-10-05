@@ -5,7 +5,7 @@ def load():
     # load data from sklearn
     X, y = datasets.load_digits(return_X_y=True)
     row_n = X.shape[0]
-    column_n = y.shape[1] + 1
+    column_n = X.shape[1] + 1
 
     all_data = np.random.rand(row_n, column_n)
 
