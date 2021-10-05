@@ -21,7 +21,7 @@ services:
     networks:
       - training-pipeline
     ports:
-      - "5001:5000"
+      - "5001:5001"
   pgdb_server:
     image: postgres:13.2
     restart: always
