@@ -12,7 +12,7 @@ def clean(dataset):
     y = dataset['y']
     X = dataset.drop(label="y")
 
-    pca = PCA()
+    pca = PCA(n_components=30)
 
     pca.fit(X)
     X_clean = pca.transform(X)
