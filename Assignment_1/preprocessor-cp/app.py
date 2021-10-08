@@ -1,6 +1,7 @@
 import os
 
 import pandas as pd
+import numpy as np
 import requests
 from flask import Flask, Response
 
@@ -19,7 +20,12 @@ def train_models():
     j = r.json()
     df = pd.DataFrame.from_dict(j)
     resp = preprocessor.clean(df)
-    return resp
+    resp_np = resp.to_numpy()
+    response = requests.request("PUT", db_api, json=resp_np, headers=headers)
+
+    return response
+
+
 
 
 app.run(host='0.0.0.0', port=5000)
