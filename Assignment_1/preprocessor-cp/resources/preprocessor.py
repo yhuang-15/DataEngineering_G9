@@ -9,8 +9,8 @@ import pandas as pd
 
 def clean(dataset):
     # need to get the data to X and y separately
-    y = dataset['label']
-    X = dataset.drop(label="label")
+    y = dataset['y']
+    X = dataset.drop(label="y")
 
     pca = PCA()
 
