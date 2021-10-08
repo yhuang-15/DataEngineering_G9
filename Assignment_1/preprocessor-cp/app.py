@@ -23,6 +23,7 @@ def train_models():
     resp_np = resp.to_numpy()
     response = requests.request("PUT", db_api, json=resp_np, headers=headers)
 
+    #you might need to return response.content below
     return response
 
 
