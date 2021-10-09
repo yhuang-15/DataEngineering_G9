@@ -33,7 +33,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - D:/2021-2023_MDSE/1.1/Data Engineering/Assignment_1/data:/var/lib/postgresql/data
+      - /home/y_huang_15/pgdata:/var/lib/postgresql/data
   db_admin:
     image: adminer
     restart: always
@@ -41,5 +41,16 @@ services:
       - training-pipeline
     ports:
       - "8080:8080"
+  preprocessor_service:
+    build:
+      context: ./../data-ingestion-cp
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/rawdata
+    depends_on:
+      - trainingdb_service
+    networks:
+      - training-pipeline
+    ports:
+      - "5000:5000"
 networks:
   training-pipeline:
