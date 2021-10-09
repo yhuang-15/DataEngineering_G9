@@ -5,6 +5,7 @@ from flask import jsonify
 from scipy.sparse import data
 from sklearn.decomposition import PCA
 import pandas as pd
+import numpy as np
 
 def clean(dataset):
     # need to get the data to X and y separately

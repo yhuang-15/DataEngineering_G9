@@ -20,13 +20,12 @@ def train_models():
     j = r.json()
     df = pd.DataFrame.from_dict(j)
     resp = preprocessor.clean(df)
-    resp_np = resp.to_numpy()
+    resp_np = resp
+
+    headers = {"Content-Type": "application/json"}
     response = requests.request("PUT", db_api, json=resp_np, headers=headers)
 
-    #you might need to return response.content below
-    return response
+    return response.content
 
 
-
-
-app.run(host='0.0.0.0', port=5000)
+app.run(host='0.0.0.0', port=5002)
