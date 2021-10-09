@@ -18,7 +18,7 @@ def train(dataset):
     model = LogisticRegression(max_iter=10000, tol=0.1)
 
     # Fit the model
-    model.fit(X_train, X_train)
+    model.fit(X_train, y_train)
     # evaluate the model
     scores = model.score(X_test, y_test)
 
