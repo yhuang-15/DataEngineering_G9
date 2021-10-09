@@ -33,7 +33,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /home/y_huang_15/pgdata:/var/lib/postgresql/data
+      - D:/2021-2023_MDSE/1.1/Data Engineering/Assignment_1/data:/var/lib/postgresql/data
   db_admin:
     image: adminer
     restart: always
