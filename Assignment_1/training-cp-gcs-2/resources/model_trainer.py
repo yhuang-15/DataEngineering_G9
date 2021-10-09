@@ -6,13 +6,13 @@ import os
 from flask import jsonify
 from google.cloud import storage
 
-import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+import pickle
 
 def train(dataset):
     # split into input (X) and output (Y) variables
-    X = dataset[:, 0:-1]
+    X = dataset[:, :-1]
     y = dataset[:, -1]
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8)
@@ -21,7 +21,6 @@ def train(dataset):
     clf.fit(X_train, y_train)
 
     scores = clf.score(X_test, y_test)
-    print(scores)
 
     text_out = {
         "accuracy:": scores
@@ -32,7 +31,7 @@ def train(dataset):
     if model_repo:
         # Save the model localy
         with open("local_random_forest_model.pkl", "wb") as file:
-            pickle.dump(model, file)
+            pickle.dump(clf, file)
         # Save to GCS as random_forestn_model.pkl
         client = storage.Client(project=project_id)
         bucket = client.get_bucket(model_repo)
@@ -45,5 +44,5 @@ def train(dataset):
         return jsonify(text_out), 200
     else:
         with open("local_random_forest_model.pkl", "wb") as file:
-            pickle.dump(model, file)
+            pickle.dump(clf, file)
         return jsonify({'message': 'The model was saved locally.'}), 200

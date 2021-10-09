@@ -4,6 +4,7 @@ import os
 from flask import jsonify
 from google.cloud import storage
 from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 import pickle
 
 
@@ -12,13 +13,14 @@ def train(dataset):
     X = dataset[:, :-1]
     Y = dataset[:, -1]
 
+    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8)
     # define model
     model = LogisticRegression(max_iter=10000, tol=0.1)
 
     # Fit the model
-    model.fit(X, Y)
+    model.fit(X_train, X_train)
     # evaluate the model
-    scores = model.score(X, Y)
+    scores = model.score(X_test, y_test)
 
     text_out = {
         "accuracy:": scores,

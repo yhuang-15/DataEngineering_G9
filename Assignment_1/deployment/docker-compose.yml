@@ -53,5 +53,31 @@ services:
       - training-pipeline
     ports:
       - "5002:5002"
+  training_service_logistic_reg:
+    build:
+      context: ./../training-cp-gcs-1
+    depends_on:
+      - trainingdb_service
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData
+      - MODEL_REPO=model_repo_de2021_steven
+      - PROJECT_ID=jads-de-2021
+    networks:
+      - training-pipeline
+    ports:
+      - "5003:5003"
+  training_service_rf_clf:
+    build:
+      context: ./../training-cp-gcs-2
+    depends_on:
+      - trainingdb_service
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData
+      - MODEL_REPO=model_repo_de2021_steven
+      - PROJECT_ID=jads-de-2021
+    networks:
+      - training-pipeline
+    ports:
+      - "5004:5004"
 networks:
   training-pipeline:
