@@ -9,14 +9,14 @@ import pandas as pd
 
 def clean(dataset):
     # need to get the data to X and y separately
-    y = dataset['y']
-    X = dataset.drop(label="y")
+    y = dataset[:,-1]
+    X = dataset[:, :-1]
 
     pca = PCA(n_components=30)
 
     pca.fit(X)
     X_clean = pca.transform(X)
 
-    clean_data = X_clean.join(y)
+    clean_data = np.append(X_clean, y, axis=1)
 
     return clean_data
