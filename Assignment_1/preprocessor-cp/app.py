@@ -20,7 +20,7 @@ def preprocess():
     r = requests.get(db_api)
     j = r.json()
     df = pd.DataFrame.from_dict(j)
-    resp = preprocessor.clean(df)
+    resp = preprocessor.clean(df.values)
     resp_np = resp
 
     headers = {"Content-Type": "application/json"}
