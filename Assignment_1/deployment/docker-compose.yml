@@ -43,14 +43,15 @@ services:
       - "8080:8080"
   preprocessor_service:
     build:
-      context: ./../data-ingestion-cp
+      context: ./../preprocessor-cp
     environment:
       - TRAININGDB_API=http://trainingdb_service:5001/training-db/rawdata
+      - SAVE_API=http://trainingdb_service:5001/training-db/PCAData
     depends_on:
       - trainingdb_service
     networks:
       - training-pipeline
     ports:
-      - "5000:5000"
+      - "5002:5002"
 networks:
   training-pipeline:

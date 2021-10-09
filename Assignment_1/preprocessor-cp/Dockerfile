@@ -11,8 +11,8 @@ COPY . .
 # Expose the port that our app runs in
 EXPOSE 5002
 # Enviroment Variables
-ENV MODEL_REPO=/usr/src/myapp/models
-ENV TRAININGDB_API=http://training-db:5000/training-db/diabetes
+ENV TRAININGDB_API=http://trainingdb_service:5001/training-db/rawdata
+ENV SAVE_API=http://trainingdb_service:5001/training-db/PCAData
 # Run our App
 CMD ["python3","app.py"]
 
