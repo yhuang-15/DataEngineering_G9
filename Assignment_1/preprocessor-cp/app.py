@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 
 
-@app.route('/preprocessing-cp/pca', methods=['POST'])
+@app.route('/preprocessing-cp/pca', methods=['PUT'])
 def preprocess():
     db_api = os.environ['TRAININGDB_API']
     db_save_api = os.environ['SAVE_API']
