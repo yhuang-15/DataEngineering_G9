@@ -13,7 +13,7 @@ def train(dataset):
     X = dataset[:, :-1]
     Y = dataset[:, -1]
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8)
+    X_train, X_test, y_train, y_test = train_test_split(X, Y, train_size=0.8)
     # define model
     model = LogisticRegression(max_iter=10000, tol=0.1)
 
