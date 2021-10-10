@@ -7,25 +7,45 @@ from keras.models import load_model
 
 class DiabetesPredictor:
     def __init__(self):
-        self.model = None
+        self.model1 = None
+        self.model2 = None
 
     # download the model
-    def download_model(self):
+    def download_models(self):
         project_id = os.environ.get('PROJECT_ID', 'Specified environment variable is not set.')
         model_repo = os.environ.get('MODEL_REPO', 'Specified environment variable is not set.')
         client = storage.Client(project=project_id)
         bucket = client.get_bucket(model_repo)
-        blob = bucket.blob('model.h5')
-        blob.download_to_filename('local_model.h5')
-        self.model = load_model('local_model.h5')
+
+        blob1 = bucket.blob('random_forest_model.pkl')
+        blob2 = bucket.blob('logistic_regression_model.pkl')
+
+        blob1.download_to_filename('local_random_forest_model.pkl')
+        blob2.download_to_filename('local_logistic_regression_model.pkl')
+
+        with open('local_random_forest_model.pkl', 'rb') as fp:
+            self.model1 = pickle.load(fp)
+
+        with open('local_logistic_regression_model.pkl', 'rb') as fp:
+            self.model2 = pickle.load(fp)
+
+        print('Models loaded successfully')
+
 
     # make prediction
     def predict(self, dataset):
-        if self.model is None:
-            self.download_model()
+        if self.model1 is None or self.model2 is None:
+            self.download_models()
+
         val_set2 = dataset.copy()
-        result = self.model.predict(dataset)
+
+        result1 = self.model1.predict(dataset)
+        result2 = self.model2.predict(dataset)
+
+        result = np.mean([result1, result2], axis=0)
+    
         y_classes = result.argmax(axis=-1)
         val_set2['class'] = y_classes.tolist()
+        print('prediction succesful')
         dic = val_set2.to_dict(orient='records')
         return jsonify(dic), 200
