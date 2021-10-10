@@ -1,0 +1,96 @@
+version: '3.8'
+services:
+  data_ingestion_service:
+    image: stevenhuang0201/dataingestioncp:0.0.1
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/rawdata
+    depends_on:
+      - trainingdb_service
+    networks:
+      - training-pipeline
+    ports:
+      - "5000:5000"
+  trainingdb_service:
+    image: stevenhuang0201/trainingdbpostgre:0.0.1
+    environment:
+      - DB_URL=postgresql://testuser:testpass@pgdb_server:5432/features
+    depends_on:
+      - pgdb_server
+    networks:
+      - training-pipeline
+    ports:
+      - "5001:5001"
+  pgdb_server:
+    image: postgres:13.2
+    restart: always
+    environment:
+      - POSTGRES_USER=testuser
+      - POSTGRES_PASSWORD=testpass
+    networks:
+      - training-pipeline
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/y_huang_15/pgdata:/var/lib/postgresql/data
+  db_admin:
+    image: adminer
+    restart: always
+    networks:
+      - training-pipeline
+    ports:
+      - "8080:8080"
+  preprocessor_service:
+    image: stevenhuang0201/preprocessor:0.0.1
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/rawdata
+      - SAVE_TRAIN_API=http://trainingdb_service:5001/training-db/PCAData_train
+      - SAVE_TEST_API=http://trainingdb_service:5001/training-db/PCAData_test
+    depends_on:
+      - trainingdb_service
+    networks:
+      - training-pipeline
+    ports:
+      - "5002:5002"
+  training_service_logistic_reg:
+    image: stevenhuang0201/traininglogisticreg:0.0.1
+    depends_on:
+      - trainingdb_service
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData_train
+      - MODEL_REPO=model_repo_de2021_steven
+      - PROJECT_ID=jads-de-2021
+    networks:
+      - training-pipeline
+    ports:
+      - "5003:5003"
+  training_service_rf_clf:
+    image: stevenhuang0201/trainingrfclf:0.0.1
+    depends_on:
+      - trainingdb_service
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData_train
+      - MODEL_REPO=model_repo_de2021_steven
+      - PROJECT_ID=jads-de-2021
+    networks:
+      - training-pipeline
+    ports:
+      - "5004:5004"
+  prediction_ensemble_service:
+    image: stevenhuang0201/prediction:0.0.1
+    depends_on:
+      - training_service_logistic_reg
+      - training_service_rf_clf
+    environment:
+      - PROJECT_ID=jads-de-2021
+      - MODEL_REPO=model_repo_de2021_steven
+      - LOAD_TEST_API=http://trainingdb_service:5001/training-db/PCAData_test
+    networks:
+      - prediction-pipline
+      - training-pipeline
+    ports:
+    - "5005:5005"
+networks:
+  training-pipeline:
+    driver: overlay
+  prediction-pipline:
+    driver: overlay
