@@ -37,7 +37,8 @@ class DigitsPredictor:
         if self.model1 is None or self.model2 is None:
             self.download_models()
 
-        x = dataset[:, :-1]
+        columns = list(dataset.columns)
+        x = dataset[columns[:-1]]
         val_set2 = x.copy()
 
         result1 = self.model1.predict_proba(x)

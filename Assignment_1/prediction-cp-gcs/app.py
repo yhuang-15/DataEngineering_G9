@@ -22,7 +22,7 @@ def predict():
     r = requests.get(db_api_test)
     j = r.json()
     df = pd.DataFrame.from_dict(j)
-    resp = dp.predict(df.values)
+    resp = dp.predict(df)
     return resp
 
 
