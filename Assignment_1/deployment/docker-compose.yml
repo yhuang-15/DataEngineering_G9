@@ -92,6 +92,7 @@ services:
       - LOAD_TEST_API=http://trainingdb_service:5001/training-db/PCAData_test
     networks:
       - prediction-pipline
+      - training-pipeline
     ports:
     - "5005:5005"
 networks:
