@@ -2,10 +2,11 @@ import os
 
 from flask import jsonify
 from google.cloud import storage
-from keras.models import load_model
+import pickle
+import numpy as np
 
 
-class DiabetesPredictor:
+class DigitsPredictor:
     def __init__(self):
         self.model1 = None
         self.model2 = None
@@ -31,7 +32,6 @@ class DiabetesPredictor:
 
         print('Models loaded successfully')
 
-
     # make prediction
     def predict(self, dataset):
         if self.model1 is None or self.model2 is None:
@@ -39,13 +39,13 @@ class DiabetesPredictor:
 
         val_set2 = dataset.copy()
 
-        result1 = self.model1.predict(dataset)
-        result2 = self.model2.predict(dataset)
+        result1 = self.model1.predict_proba(dataset)
+        result2 = self.model2.predict_proba(dataset)
 
-        result = np.mean([result1, result2], axis=0)
+        result = np.mean([result1, result2], axis=0)  # columns
     
-        y_classes = result.argmax(axis=-1)
+        y_classes = result.argmax(axis=1)  # rows
         val_set2['class'] = y_classes.tolist()
-        print('prediction succesful')
+        # print('prediction succesful')
         dic = val_set2.to_dict(orient='records')
         return jsonify(dic), 200

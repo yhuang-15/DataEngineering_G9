@@ -9,7 +9,7 @@ import numpy as np
 
 def clean(dataset):
     # need to get the data to X and y separately
-    y = dataset[:,-1]
+    y = dataset[:, -1]
     X = dataset[:, :-1]
 
     pca = PCA(n_components=30)

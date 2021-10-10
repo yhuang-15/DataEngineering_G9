@@ -10,6 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 import pickle
 
+
 def train(dataset):
     # split into input (X) and output (Y) variables
     X = dataset[:, :-1]

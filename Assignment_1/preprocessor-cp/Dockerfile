@@ -12,7 +12,8 @@ COPY . .
 EXPOSE 5002
 # Enviroment Variables
 ENV TRAININGDB_API=http://trainingdb_service:5001/training-db/rawdata
-ENV SAVE_API=http://trainingdb_service:5001/training-db/PCAData
+ENV SAVE_TRAIN_API=http://trainingdb_service:5001/training-db/PCAData_train
+ENV SAVE_TEST_API=http://trainingdb_service:5001/training-db/PCAData_test
 # Run our App
 CMD ["python3","app.py"]
 

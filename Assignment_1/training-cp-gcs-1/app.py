@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 import requests
-from flask import Flask, Response
+from flask import Flask
 
 from flask import jsonify
 from resources import model_trainer

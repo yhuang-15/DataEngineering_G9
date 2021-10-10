@@ -46,7 +46,8 @@ services:
       context: ./../preprocessor-cp
     environment:
       - TRAININGDB_API=http://trainingdb_service:5001/training-db/rawdata
-      - SAVE_API=http://trainingdb_service:5001/training-db/PCAData
+      - SAVE_TRAIN_API=http://trainingdb_service:5001/training-db/PCAData_train
+      - SAVE_TEST_API=http://trainingdb_service:5001/training-db/PCAData_test
     depends_on:
       - trainingdb_service
     networks:
@@ -59,7 +60,7 @@ services:
     depends_on:
       - trainingdb_service
     environment:
-      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData_train
       - MODEL_REPO=model_repo_de2021_steven
       - PROJECT_ID=jads-de-2021
     networks:
@@ -72,12 +73,27 @@ services:
     depends_on:
       - trainingdb_service
     environment:
-      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData
+      - TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData_train
       - MODEL_REPO=model_repo_de2021_steven
       - PROJECT_ID=jads-de-2021
     networks:
       - training-pipeline
     ports:
       - "5004:5004"
+  prediction_ensemble_service:
+    build:
+      context: ./../prediction-cp-gcs
+    depends_on:
+      - training_service_logistic_reg
+      - training_service_rf_clf
+    environment:
+      - PROJECT_ID=jads-de-2021
+      - MODEL_REPO=model_repo_de2021_steven
+      - LOAD_TEST_API=http://trainingdb_service:5001/training-db/PCAData_test
+    networks:
+      - prediction-pipline
+    ports:
+    - "5005:5005"
 networks:
   training-pipeline:
+  prediction-pipline:

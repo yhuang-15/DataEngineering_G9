@@ -9,10 +9,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all files in training-db local host directory to /usr/src/myapp in Docker container
 COPY . .
 # Expose the port that our app runs in
-EXPOSE 5000
+EXPOSE 5005
 # Enviroment Variables
-ENV PROJECT_ID=yourprojectidhere
-ENV MODEL_REPO=model_repo_de2021
+ENV PROJECT_ID=jads-de-2021
+ENV MODEL_REPO=model_repo_de2021_steven
+ENV LOAD_TEST_API=http://trainingdb_service:5001/training-db/PCAData_test
 # Run our App
 CMD ["python3","app.py"]
 
