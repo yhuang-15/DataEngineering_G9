@@ -31,7 +31,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /home/y_huang_15/pgdata:/var/lib/postgresql/data
+      - dbvolume:/var/lib/postgresql/data
   db_admin:
     image: adminer
     restart: always
@@ -94,3 +94,5 @@ networks:
     driver: overlay
   prediction-pipline:
     driver: overlay
+volumes:
+  dbvolume:
