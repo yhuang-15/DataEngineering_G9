@@ -7,6 +7,7 @@ import pandas as pd
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
+dp = DigitsPredictor()
 
 @app.route('/digits_predictor', methods=['PUT'])
 def refresh_model():
@@ -18,12 +19,13 @@ def predict():
     db_api_test = os.environ['LOAD_TEST_API']
 
     # load data from the database
-    resp = requests.get(db_api_test)
-    json_data = resp.json()
-    df_content = pd.DataFrame.from_dict(json_data)
-    return dp.predict(df_content.values)
+    r = requests.get(db_api_test)
+    j = r.json()
+    df = pd.DataFrame.from_dict(j)
+    resp = dp.predict(df.values)
+    return resp
 
 
-dp = DigitsPredictor()
+
 
 app.run(host='0.0.0.0', port=5005)
