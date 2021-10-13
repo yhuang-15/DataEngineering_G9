@@ -53,7 +53,7 @@ git clone https://github.com/yhuang-15/DataEngineering_G9.git
 
 ## Style guide
 
-Our python code is written in PEP-8 style, which is style guide for python code by Guido van Rossum.
+Our python code is written in PEP-8 style, which is the style guide for python code by Guido van Rossum.
 <br />
 https://www.python.org/dev/peps/pep-0008/
 
