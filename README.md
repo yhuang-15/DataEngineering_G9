@@ -20,7 +20,7 @@ An application on classifying handwritten digits was chosen. This was written us
 ## Developing
 
 ### Built With
-A list of libraries and packages are listed downhere, this is only for clarity as these libraries and packages are already incorported in the containerization of our application.
+A list of libraries and packages are listed downhere, this is only for clarity as these libraries and packages are already incorporated in the containerization of our application.
 
 flask==2.0.1 <br />
 pandas==1.0.5 <br />
