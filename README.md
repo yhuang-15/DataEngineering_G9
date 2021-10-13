@@ -10,7 +10,7 @@ Gergo Boscardi <br />
 Kit Chan <br />
 Yikang Huang <br />
 Virgil Sowirono <br />
-
+hello
 ## Introduction
 
 As our course is about data engineering which is an approach to design and develop systems or applications that for example ingest, store and process data. These kind of systems are typically complex distributed sytems or applications which is also what our assignment was about. The task was to turn a machine learning application into a distributed application which had at least five differennt components. Another requirement was that this application should be containerized and deployed on Google Cloud.
