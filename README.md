@@ -13,7 +13,7 @@ Virgil Sowirono <br />
 
 ## Introduction
 
-As our course is about data engineering which is an approach to design and develop systems or applications that for example ingest, store and process data. These kind of systems are typically complex distributed sytems or applications which is also what our assignment was about. The task was to turn a machine learning application into a distributed application which had at least five differennt components. Another requirement was that this application should be containerized and deployed on Google Cloud.
+As our course is about data engineering, which is an approach to design and develop systems or applications that for example ingest, store and process data. These kind of systems are typically complex distributed sytems or applications which is also what our assignment was about. The task was to turn a machine learning application into a distributed application which had at least five differennt components. Another requirement was that this application should be containerized and deployed on Google Cloud.
 <br /> <br />
 An application on classifying handwritten digits was chosen. This was written using Python as our main language with usage of Flask for API management. Our data comes from a Postgres database which was built on a database shown in class.
 
