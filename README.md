@@ -59,7 +59,10 @@ Our python code is written in PEP-8 style, which is the style guide for python c
 <br />
 https://www.python.org/dev/peps/pep-0008/
 
-## Database
+## Dataset & Database
+
+For the dataset we decided to use a dummy dataset from the sci-kit-learn package which can be used to classify digits from 0 and 10. <br />
+https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits
 
 A postgress database is used which contained three tables which were for the raw data, the preproccesed data and for the training / testing data.
 
