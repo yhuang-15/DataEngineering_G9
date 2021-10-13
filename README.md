@@ -43,6 +43,8 @@ https://cloud.google.com/free
 An API client is also necessary for testing purposes, one example for a client is Insomnia. <br />
 https://insomnia.rest/
 
+A local device is recommended because the Google Cloud Platform is not free, so in order to be efficient and cost-saving. We recommend to use a local machine for the API client, inspecting or modifying the code.
+
 ### Setting up Dev
 
 To get started you can clone our GitHub project to your own desired repository.
@@ -57,14 +59,9 @@ Our python code is written in PEP-8 style, which is the style guide for python c
 <br />
 https://www.python.org/dev/peps/pep-0008/
 
-## Api Reference
-
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
-
 ## Database
 
-Explaining what database (and version) has been used. Provide download links.
-Documents your database design and schemas, relations etc... 
+A postgress database is used which contained three tables which were for the raw data, the preproccesed data and for the training / testing data.
 
 ## Licensing
 
