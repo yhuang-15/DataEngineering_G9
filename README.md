@@ -65,7 +65,3 @@ For the dataset we decided to use a dummy dataset from the sci-kit-learn package
 https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits
 
 A postgress database is used which contained three tables which were for the raw data, the preproccesed data and for the training / testing data.
-
-## Licensing
-
-State what the license is and how to find the text version of the license.
