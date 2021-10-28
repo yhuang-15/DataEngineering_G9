@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="386fe1af-9811-4753-9432-567c9391fa4d" name="Default Changelist" comment="" />
+    <list default="true" id="386fe1af-9811-4753-9432-567c9391fa4d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +22,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../DE2021/lab5" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,13 +38,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="261" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1633963047663">
+    <state x="436" y="280" key="FileChooserDialogImpl" timestamp="1634738763560">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="261" y="349" key="com.intellij.ide.util.TipDialog/-2736.0.1368.897/0.0.1920.1050@0.0.1920.1050" timestamp="1633963047663" />
-    <state x="1153" y="11" width="859" height="1029" key="dock-window-1" timestamp="1633963170423">
+    <state x="436" y="280" key="FileChooserDialogImpl/-2736.0.1368.897/0.0.1920.1050@0.0.1920.1050" timestamp="1634738763560" />
+    <state x="261" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1634286723673">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1153" y="11" width="859" height="1029" key="dock-window-1/-2736.0.1368.897/0.0.1920.1050@0.0.1920.1050" timestamp="1633963170423" />
+    <state x="261" y="349" key="com.intellij.ide.util.TipDialog/-2736.0.1368.897/0.0.1920.1050@0.0.1920.1050" timestamp="1634286723673" />
+    <state x="1129" y="0" width="798" height="1057" key="dock-window-1" timestamp="1634738768626">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1129" y="0" width="798" height="1057" key="dock-window-1/-2736.0.1368.897/0.0.1920.1050@0.0.1920.1050" timestamp="1634738768626" />
   </component>
 </project>
