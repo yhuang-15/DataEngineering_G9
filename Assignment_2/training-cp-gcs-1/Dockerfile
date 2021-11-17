@@ -11,8 +11,7 @@ COPY . .
 # Expose the port that our app runs in
 EXPOSE 5003
 # Enviroment Variables
-ENV TRAININGDB_API=http://trainingdb_service:5001/training-db/PCAData
-ENV MODEL_REPO=model_repo_de2021_steven
+ENV GCS_TRAINING_DATA_REPO=dejads_input
 ENV PROJECT_ID=jads-de-2021
 # Run our App
 CMD ["python3","app.py"]
