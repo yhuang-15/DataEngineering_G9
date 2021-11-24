@@ -1,4 +1,6 @@
 from kafka import KafkaProducer
+from csv import DictReader, reader
+import json
 
 
 def kafka_python_producer_sync(producer, msg, topic):
@@ -21,15 +23,16 @@ def kafka_python_producer_async(producer, msg, topic):
 
 
 if __name__ == '__main__':
-    producer = KafkaProducer(bootstrap_servers='35.188.133.126:9092')  # use your VM's external IP Here!
-    file_path = "D:\\2021-2023_MDSE\\1.1\Data Engineering\DE2021\lab7\data\wordcount.txt"
+    producer = KafkaProducer(bootstrap_servers='34.136.86.11:9092')
+    file_path = "test.csv"
+    
     with open(file_path) as f:
-        lines = f.readlines()
+        lines = reader(f)
+        for id, line in enumerate(lines):
+            msg = ''
+            for column in line:
+                column = column.replace(',','')
+                msg += column + ','
+            kafka_python_producer_sync(producer, msg[:-1], 'records')
 
-    for id, line in enumerate(lines):
-        if id == 0:
-            kafka_python_producer_sync(producer, line[3:], 'word')
-        else:
-            kafka_python_producer_sync(producer, line, 'word')
-
-    f.close()
+    
