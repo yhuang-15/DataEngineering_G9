@@ -1,6 +1,6 @@
 from csv import reader
 
-file_path = "test.csv"
+file_path = "D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_2.csv"
 print('\n')
 
 with open(file_path) as f:
