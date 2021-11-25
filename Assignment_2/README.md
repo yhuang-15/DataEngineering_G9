@@ -61,7 +61,10 @@ https://www.python.org/dev/peps/pep-0008/
 
 ## Dataset & Database
 
-For the dataset we decided to use a dummy dataset from the sci-kit-learn package which can be used to classify digits from 0 and 10. <br />
-https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html#sklearn.datasets.load_digits
+Two seperate datasets were used, one for the batch processing and one for the streaming processing. Both were found on the website Kaggle, which contains various available datasets.
 
-A postgress database is used which contained three tables which were for the raw data, the preproccesed data and for the training / testing data.
+Airline Delays:
+https://www.kaggle.com/threnjen/2019-airline-delays-and-cancellations
+
+Credit Card Fraud:
+https://www.kaggle.com/kartik2112/fraud-detection?select=fraudTrain.csv
