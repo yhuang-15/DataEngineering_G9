@@ -5,7 +5,7 @@ import json
 
 def kafka_python_producer_sync(producer, msg, topic):
     producer.send(topic, bytes(msg, encoding='utf-8'))
-    print("Sending " + msg)
+    print("Sending " + msg + '\n')
     producer.flush(timeout=60)
 
 
@@ -23,8 +23,8 @@ def kafka_python_producer_async(producer, msg, topic):
 
 
 if __name__ == '__main__':
-    producer = KafkaProducer(bootstrap_servers='35.188.56.254:9092')
-    file_path = "D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_1.csv"
+    producer = KafkaProducer(bootstrap_servers='34.122.35.201:9092')
+    file_path = "D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_2.csv"
     
     with open(file_path) as f:
         lines = reader(f)

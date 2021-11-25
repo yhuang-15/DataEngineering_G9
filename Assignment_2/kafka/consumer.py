@@ -4,7 +4,7 @@ from kafka import KafkaConsumer, TopicPartition
 def read_from_topic(kafka_consumer, topic):
     kafka_consumer.subscribe(topics=[topic])
     for msg in kafka_consumer:
-        output = f'Key: {msg.key.decode("utf-8")}, Value: {msg.value.decode("utf-8")}'
+        output = f'Value: {msg.value.decode("utf-8")}'
         print(output)
 
 
@@ -24,7 +24,7 @@ def read_from_topic_with_partition_offset(kafka_consumer, topic):
 
 
 if __name__ == '__main__':
-    consumer = KafkaConsumer(bootstrap_servers='35.188.56.254:9092',  # use your VM's external IP Here!
+    consumer = KafkaConsumer(bootstrap_servers='34.122.35.201:9092',  # use your VM's external IP Here!
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=10000)
     print(consumer.topics())

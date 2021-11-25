@@ -10,9 +10,9 @@ def create_topics(admin, topic_list):
 
 
 if __name__ == '__main__':
-    admin_client = KafkaAdminClient(bootstrap_servers="35.188.56.254:9092",
+    admin_client = KafkaAdminClient(bootstrap_servers="34.122.35.201:9092",
                                     client_id='G9_Assignment_2')  # use your VM's external IP Here!
     topic_list = [NewTopic(name="records", num_partitions=1, replication_factor=1)]
-    #delete_topics(admin_client, ['records'])
+    delete_topics(admin_client, ['records', '__confluent.support.metrics'])
     create_topics(admin_client, topic_list)
 
