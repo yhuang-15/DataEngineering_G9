@@ -1,4 +1,5 @@
 from kafka import KafkaConsumer, TopicPartition
+from datetime import datetime
 
 
 def read_from_topic(kafka_consumer, topic):
@@ -24,8 +25,10 @@ def read_from_topic_with_partition_offset(kafka_consumer, topic):
 
 
 if __name__ == '__main__':
+    date = datetime.now().strftime("%m%d%M")
+    print(f'records{date}')
     consumer = KafkaConsumer(bootstrap_servers='34.122.35.201:9092',  # use your VM's external IP Here!
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=10000)
     print(consumer.topics())
-    read_from_topic(consumer, 'records')
+    read_from_topic(consumer, f'records{date}')

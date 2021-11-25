@@ -1,7 +1,8 @@
 from kafka import KafkaProducer
 from csv import DictReader, reader
 import json
-
+from time import sleep
+from datetime import datetime
 
 def kafka_python_producer_sync(producer, msg, topic):
     producer.send(topic, bytes(msg, encoding='utf-8'))
@@ -23,16 +24,22 @@ def kafka_python_producer_async(producer, msg, topic):
 
 
 if __name__ == '__main__':
+    date = datetime.now().strftime("%m%d%M")
     producer = KafkaProducer(bootstrap_servers='34.122.35.201:9092')
-    file_path = "D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_2.csv"
+    #file_path = "D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_3.csv"
     
-    with open(file_path) as f:
-        lines = reader(f)
-        for id, line in enumerate(lines):
-            msg = ''
-            for column in line:
-                column = column.replace(',','')
-                msg += column + ','
-            kafka_python_producer_sync(producer, msg[:-1], 'records')
+    for i in range(1,4):
+        file_path = f"D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_{i}.csv"
+
+        with open(file_path) as f:
+            lines = reader(f)
+            for id, line in enumerate(lines):
+                msg = ''
+                for column in line:
+                    column = column.replace(',','')
+                    msg += column + ','
+                kafka_python_producer_sync(producer, msg[:-1], f'records{date}')
+        
+        sleep(5)
 
     
