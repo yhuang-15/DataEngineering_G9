@@ -64,7 +64,9 @@ https://www.python.org/dev/peps/pep-0008/
 Two seperate datasets were used, one for the batch processing and one for the streaming processing. Both were found on the website Kaggle, which contains various available datasets.
 
 Airline Delays:
+<br />
 https://www.kaggle.com/threnjen/2019-airline-delays-and-cancellations
 
 Credit Card Fraud:
+<br />
 https://www.kaggle.com/kartik2112/fraud-detection?select=fraudTrain.csv
