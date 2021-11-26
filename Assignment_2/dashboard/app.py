@@ -11,8 +11,7 @@ def print_results():
     test_dic = load_table_from_BQ('top_delay')
     return jsonify(test_dic, 200)
 
-# http://localhost:5000/test
-app.run(host='0.0.0.0', port=5000)
+
 
 def load_table_from_BQ(table_name):
     client = bigquery.Client(project="jads-de-2021")  
@@ -25,3 +24,7 @@ def load_table_from_BQ(table_name):
     #df_result = query_job.result()  # Waits for query to finish
 
     return df_result
+
+
+# http://localhost:5000/test
+app.run(host='0.0.0.0', port=5000)
