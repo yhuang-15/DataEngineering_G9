@@ -11,4 +11,5 @@ with open(file_path) as f:
             column = column.replace(',','')
             msg += column + ','
         print(msg[:-1], '\n')
-        
+
+      
