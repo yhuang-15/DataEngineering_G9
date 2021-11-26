@@ -29,7 +29,7 @@ if __name__ == '__main__':
     #file_path = "D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_3.csv"
     
     
-    file_path = f"D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_{2}.csv"
+    file_path = f"D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_{3}.csv"
 
 
     with open(file_path) as f:
@@ -39,7 +39,7 @@ if __name__ == '__main__':
             for column in line:
                 column = column.replace(',','')
                 msg += column + ','
-            kafka_python_producer_sync(producer, msg[:-1], f'records{date}')
+            kafka_python_producer_sync(producer, msg[:-1], 'records')
         
        
 
