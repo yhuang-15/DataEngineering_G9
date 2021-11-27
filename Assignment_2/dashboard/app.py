@@ -68,6 +68,7 @@ def plot_gender(df, gender, axis):
     axis.set_ylim([ys.min()-10, ys.max()+10])
     axis.set_xticks([i for i in range(df_M['start_time'].unique().shape[0])])
     axis.set_xticklabels([str(time) for time in df_M['start_time']], rotation=45, ha='right')
+    axis.title.set_text(f'Gender: {gender}')
 
     return axis
 
