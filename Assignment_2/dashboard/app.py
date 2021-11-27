@@ -60,7 +60,7 @@ def plot_gender(df, gender, axis):
     df_M = df[df['gender'] == gender]
     df_M['start_time'] = pd.to_datetime(df_M['start_time']).astype('datetime64[s]')
     # sort by start time stamp in case of delayed records
-    df_M.sort_values(by='start_time')
+    df_M = df_M.sort_values(by='start_time')
     xs = range(df_M['start_time'].unique().shape[0])
     ys = df_M['amt']
 
