@@ -25,18 +25,19 @@ def kafka_python_producer_async(producer, msg, topic):
 
 if __name__ == '__main__':
     date = datetime.now().strftime("%m%d%M")
+    # change ip every time
     producer = KafkaProducer(bootstrap_servers='35.193.37.189:9092')
-    #file_path = "D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_3.csv"
-    
-    
     file_path = f"D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_{5}.csv"
 
 
     with open(file_path) as f:
         lines = reader(f)
+
+        # produce the records in csv file line by line
         for id, line in enumerate(lines):
             msg = ''
             for column in line:
+                # remove extra comma in some column's value
                 column = column.replace(',','')
                 msg += column + ','
             kafka_python_producer_sync(producer, msg[:-1], 'record')

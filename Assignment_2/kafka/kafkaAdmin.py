@@ -13,7 +13,7 @@ if __name__ == '__main__':
     date = datetime.now().strftime("%m%d%M")
 
     admin_client = KafkaAdminClient(bootstrap_servers="35.193.37.189:9092",
-                                    client_id='G9_Assignment_2_1626')  # use your VM's external IP Here!
+                                    client_id='G9_Assignment_2_1626')  
     topic_list = [NewTopic(name="record", num_partitions=1, replication_factor=1)]
     #delete_topics(admin_client, ['record'])
     create_topics(admin_client, topic_list)
