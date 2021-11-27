@@ -31,4 +31,4 @@ if __name__ == '__main__':
                              auto_offset_reset='earliest',
                              consumer_timeout_ms=10000)
     print(consumer.topics())
-    read_from_topic(consumer, f'records{date}')
+    read_from_topic(consumer, 'records')
