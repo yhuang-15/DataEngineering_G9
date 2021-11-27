@@ -17,7 +17,7 @@ def print_batch_results(table_name):
 
 # results for stream pipeline
 @app.route('/stream/<table_name>', methods=['GET'])
-def print_batch_results(table_name):
+def print_stream_results(table_name):
     test_dic = load_table_from_BQ(table_name).to_dict()
     return jsonify(test_dic, 200)
 
