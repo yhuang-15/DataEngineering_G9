@@ -45,14 +45,16 @@ def plotting():
 
 def create_figure():
     fig = Figure(figsize = (20, 12))
-    axis_1 = fig.add_subplot(1, 2, 1)
-    axis_2 = fig.add_subplot(1, 2, 2)
+    axis_1 = fig.add_subplot(1, 1, 1)
+    #axis_2 = fig.add_subplot(1, 2, 2)
 
     #df = pd.read_csv('D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/stream_table.csv')
     df = load_table_from_BQ('streaming_table')
     
-    axis_1 = plot_gender(df, 'M', axis_1)
-    axis_2 = plot_gender(df, 'F', axis_2)
+    plot_gender(df, 'M', axis_1)
+    plot_gender(df, 'F', axis_1)
+
+    axis_1.legend()
 
     return fig
 
@@ -64,11 +66,11 @@ def plot_gender(df, gender, axis):
     xs = range(df_M['start_time'].unique().shape[0])
     ys = df_M['amt']
 
-    axis.plot(xs, ys)
+    axis.plot(xs, ys, label = gender)
     axis.set_ylim([ys.min()-10, ys.max()+10])
     axis.set_xticks([i for i in range(df_M['start_time'].unique().shape[0])])
     axis.set_xticklabels([str(time) for time in df_M['start_time']], rotation=45, ha='right')
-    axis.set_title(f'Gender: {gender}')
+    #axis.set_title(f'Gender: {gender}')
 
     return axis
 
