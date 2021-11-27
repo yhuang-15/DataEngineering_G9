@@ -4,7 +4,7 @@ from matplotlib.figure import Figure
 import random
 import io
 import pandas as pd
-#from google.cloud import bigquery
+from google.cloud import bigquery
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
