@@ -15,7 +15,7 @@ Virgil Sowirono <br />
 
 Batch layer: Find out the airport name and coordinates which has the most and second least percentage of flight delay.
 
-Stream layer: In every 5 minutes, find out the category and the amount of fraud in female and male customer that have greatest amount of fraud in total.
+Stream layer: In every 5 minutes, find out the category and the amount of fraud in female and male customers that have greatest amount of fraud in total.
 
 ## Developing
 
