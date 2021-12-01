@@ -12,29 +12,13 @@ Yikang Huang <br />
 Virgil Sowirono <br />
 
 ## Introduction
+The goal of the assignment was to design and implement a data architecture and multiple data processing pipelines utilising Apache Spark and Google Cloud Platform (GCP) services.
 
 Batch layer: Find out the airport name and coordinates which has the most and second least percentage of flight delay.
 
 Stream layer: In every 5 minutes, find out the category and the amount of fraud in female and male customers that have greatest amount of fraud in total.
 
 ## Developing
-
-### Built With
-A list of libraries and packages are listed downhere, this is only for clarity as these libraries and packages are already incorporated in the containerization of our application.
-
-flask==2.0.1 <br />
-pandas==1.0.5 <br />
-numpy==1.19.1 <br />
-nltk==3.5 <br />
-scipy==1.4.1 <br />
-spacy==2.3.2 <br />
-h5py==2.10.0 <br />
-requests <br />
-scikit-learn==0.23.1 <br />
-google-cloud-storage <br />
-sqlalchemy==1.3.18 <br />
-sqlalchemy-utils <br />
-psycopg2-binary <br />
 
 ### Prerequisites
 An account on the Google Cloud Platform is necessary as this the platform where we will deploy our application. <br />
