@@ -12,7 +12,7 @@ Yikang Huang <br />
 Virgil Sowirono <br />
 
 ## Introduction
-The goal of the assignment was to design and implement a data architecture and multiple data processing pipelines utilising Apache Spark and Google Cloud Platform (GCP) services. Two seperate data processing pipelines were made a short overview of these pipelines is given below.
+The goal of the assignment was to design and implement a data architecture and multiple data processing pipelines utilising Apache Spark and Google Cloud Platform (GCP) services. Two seperate data processing pipelines were made, a short overview of these pipelines is given below.
 
 Batch processing layer: Find out the airport name and coordinates which has the most and second least percentage of flight delay.
 
