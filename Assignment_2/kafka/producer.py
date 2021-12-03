@@ -26,7 +26,7 @@ def kafka_python_producer_async(producer, msg, topic):
 if __name__ == '__main__':
     date = datetime.now().strftime("%m%d%M")
     # change ip every time
-    producer = KafkaProducer(bootstrap_servers='35.193.238.148:9092')
+    producer = KafkaProducer(bootstrap_servers='34.136.141.125:9092')
     file_path = f"D:/2021-2023_MDSE/1.1/Data Engineering/Assignments/data/Credit_card_transactions/test_{6}.csv"
 
 
